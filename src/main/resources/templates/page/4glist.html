@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>运营商2、4G室分物理点</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="author" content="yb" />
+    <meta name="keywords" content="关键词" />
+    <meta name="description" content="描述" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/public/layui/css/layui.css" />
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <link rel="stylesheet" href="/static/css/4glist.css" />
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/public/layui/layui.js"></script>
+    <script src="/static/public/vue/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="rrapp">
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">运营商2/4G室分物理点</div>
+    
+                        <div class="layui-card-body">
+                            <!-- uploadExcel -->
+                            <div class="poImportBox">
+                                <div class="form-group" id="thumbnailUploadContainer" style="clear:both;height: 30px;" class="col-sm-10">
+                                    <span class="poFile">
+                                        <input id="articleImageFile" name="excelFile" type="file" class="form-control" />
+                                        <span>点击选择要上传的文件</span>
+                                    </span>
+                                    <input id="saveZipButton" class="layui-btn" type="button" value="上传" />
+                                </div>
+                                <hr>
+                            </div>
+                            <!-- search -->
+                            <div class="search_form">
+                                <div class="search_cell">
+                                    <label class="search_label">距离：</label>
+                                    <input class="search_input" type="number" name="distance" id="reload_distance" autocomplete="off" placeholder="距离" min="0" max="200" v-model="txDistance">
+                                </div>
+                                <div class="search_cell">
+                                    <label class="search_label">参照：</label>
+                                    <select name="tx_type" id="reload_type" class="tx_type">
+                                        <option type="1">移动2G</option>
+                                        <option type="2">移动4G</option>
+                                        <option type="3">电信4G</option>
+                                        <option type="4">联通4G</option>
+                                    </select>
+                                </div>
+                                <button id="reload_btn" class="layui-btn" data-type="reload">查询</button>
+                            </div>
+                            <!-- table -->
+                            <table class="layui-hide" id="tx-list-table" lay-filter="tx-list-table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 头部工具栏bar -->
+    <script type="text/html" id="txTable_toolBar">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm operation_btn" lay-event="exportExcel">导出excel</button>
+        <!-- <button class="layui-btn layui-btn-sm operation_btn" lay-event="importExcel">新建导入</button> -->
+      </div>
+    </script>
+    <!-- <script type="text/html" id="txTable_bar">
+      <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看关联表</a>
+    </script> -->
+    <script src="/static/js/4glist.js"></script>
+</body>
+
+</html>

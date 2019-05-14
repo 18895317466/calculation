@@ -1,0 +1,39 @@
+server:
+  port: 8001
+  connection-timeout:
+  session:
+    timeout: 3600
+  compression:
+    enabled: true
+    mime-types: application/json,text/html,text/css
+    min-response-size: 2048
+  tomcat:
+    max-threads: 1000
+    uri-encoding: UTF-8
+    remote-ip-header: x-forwarded-for
+    accesslog:
+      directory: /data/log
+      pattern: common
+      enabled: true
+      prefix: access_log
+      suffix: .log
+
+spring:
+  application:
+    name: station
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-uf6t0qr23393x707vo.mysql.rds.aliyuncs.com:3306/mx-base-station?useUnicode&characterEncoding=utf8&useSSL=false
+    #url: jdbc:mysql://192.168.199.238:3306/mx-base-station?useUnicode&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 'wplen519104!'
+#    password: 123456
+    default-auto-commit: false
+    max-active: 100
+    initial-size: 1
+    max-wait: 60000
+    min-idle: 1
+    max-idle: 25
+
+beetl:
+  root: /data/templates

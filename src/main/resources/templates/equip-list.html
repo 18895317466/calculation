@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>上报列表</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="author" content="yb" />
+    <meta name="keywords" content="关键词" />
+    <meta name="description" content="描述" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/public/layui/css/layui.css" />
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <link rel="stylesheet" href="/static/css/equip/equip-list.css" />
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/public/layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">上报列表</div>
+
+                    <div class="layui-card-body">
+                        <!-- search -->
+                        <div class="search_form">
+                            <div class="search_cell">
+                                <label class="search_label">关键词：</label>
+                                <input class="search_input" name="keyword" id="reload_keyword" autocomplete="off" placeholder="设备号">
+                            </div>
+                            <div class="search_cell">
+                                <label class="search_label">日期：</label>
+                                <input class="search_input" id="reload_reportDate" type="text" placeholder="请选择月份">
+                            </div>
+                            <button id="reload_btn" class="layui-btn" data-type="reload">搜索</button>
+                        </div>
+                        <!-- table -->
+                        <table class="layui-hide" id="equip-list-table" lay-filter="equip-list-table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PO表头部工具栏bar -->
+    <script type="text/html" id="equipTable_toolBar">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm operation_btn" lay-event="exportExcel">导出上报列表</button>
+      </div>
+    </script>
+    <script src="/static/js/equip/equip-list.js"></script>
+</body>
+
+</html>

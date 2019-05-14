@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mingxun.calculation.dao.BaseStationDao" >
+    <sql id="COLUMNS">
+        station_name, lat, lng, door, manufacturer, station_type
+    </sql>
+
+    <insert id="save" parameterType="com.mingxun.calculation.model.BaseStation">
+        insert into base_station (
+        <include refid="COLUMNS" />
+        )
+        values (
+        #{stationName}, #{lat}, #{lng}, #{door}, #{manufacturer}, #{stationType}
+        )
+    </insert>
+
+    <select id="selectAll" resultType="com.mingxun.calculation.model.BaseStation">
+        select * from base_station
+    </select>
+
+    <insert id="batchInsertData" parameterType="java.util.List" useGeneratedKeys="false">
+        insert  into base_station
+        ( station_name, lat, lng, door, manufacturer, station_type)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.stationName , jdbcType=VARCHAR},
+            #{item.lat , jdbcType=DOUBLE},
+            #{item.lng , jdbcType=DOUBLE},
+            #{item.door , jdbcType=VARCHAR},
+            #{item.manufacturer , jdbcType=VARCHAR},
+            #{item.stationType , jdbcType=INTEGER}
+            )
+        </foreach>
+
+    </insert>
+
+    <select id="findPaging" parameterType="com.mingxun.calculation.model.BaseStationTerm"
+            resultType="com.mingxun.calculation.model.BaseStation">
+        SELECT id,<include refid="COLUMNS" /> FROM  base_station
+        WHERE  station_type =#{type}
+        <if test="stationName != null">
+           AND  station_name LIKE '%${stationName}%'
+        </if>
+    </select>
+
+
+</mapper>

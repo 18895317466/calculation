@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    box-sizing: border-box;
+    transition: all 375ms
+}
+body,html{
+    margin:0;
+    padding:0;
+    font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ul,ol,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+a{
+    color:#333333;
+    text-decoration: none;
+    outline: none;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);  
+    -moz-tap-highlight-color:rgba(0, 0, 0, 0);  
+    -ms-tap-highlight-color:rgba(0, 0, 0, 0);  
+    -o-tap-highlight-color:rgba(0, 0, 0, 0);  
+    tap-highlight-color:rgba(0, 0, 0, 0);
+}
+img{
+    border: none;
+}
+.fixed:after{
+    display:block;
+    clear:both;
+    content:'';
+    visibility:hidden;
+    height:0
+}
+.fixed{
+    zoom:1
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}
+input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none;}
+
+.layui-table-tips-c:before{
+    right: 1px !important;
+    top: -3px !important;
+}
+body{
+    background-color: #f7f7f7;
+}
+.layui-fluid{
+    padding: 15px;
+}
+.layui-table-header .layui-table thead tr th{
+
+    font-weight: bold;
+}
+
+.tips-red{
+    color: red;
+    font-size: 14px;
+}
+
+/* [v-cloak]{
+    display: none;
+} */
